@@ -22,4 +22,6 @@ stop-backend-servers:
 	@kill $$(cat s2.pid) && echo "s2 stopped"
 	@kill $$(cat s3.pid) && echo "s3 stopped"
 
+test : 
+	while sleep 1; do curl http://localhost:8888; done
 .PHONY: start-reverse-proxy start-backend-servers stop-backend-servers
