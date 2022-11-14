@@ -1,6 +1,6 @@
 start-reverse-proxy: start-backend-servers
-	nginx -t -c $$PWD/nginx.conf -p $$PWD
-	nginx -c $$PWD/nginx.conf -p $$PWD
+	nginx -t -c $$PWD/load-balancer.conf -p $$PWD
+	nginx -c $$PWD/load-balancer.conf -p $$PWD
 
 reverse-proxy : main.go
 	go build -o $@ $^
