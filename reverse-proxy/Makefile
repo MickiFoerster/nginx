@@ -1,3 +1,7 @@
+redirect-to-different-ports-dependent-on-domain: start-backend-servers
+	nginx -t -c $$PWD/$@.conf -p $$PWD
+	nginx -c $$PWD/$@.conf -p $$PWD
+
 start-reverse-proxy: start-backend-servers
 	nginx -t -c $$PWD/load-balancer.conf -p $$PWD
 	nginx -c $$PWD/load-balancer.conf -p $$PWD
